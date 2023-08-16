@@ -2,13 +2,29 @@ import { useState } from 'react';
 
 const Counter = () => {
   const [count, setCount] = useState(0);
+  const [values, setValues] = useState({ first: "", last: ""})
+
+  const add = () => {
+    setCount(prev => prev + 1)
+    setCount(prev => prev + 1)
+  }
+
+  const subtract = () => {
+    setCount(prev => prev - 1)
+    setCount(prev => prev - 1)
+  }
+
+  const updateValues = (newVal) => {
+    setValues({...values,  last: "Gray"});
+    setValues(prev => ({...prev,  last: "Gray"}));
+  }
 
   return (
     <section>
       <h1>{count}</h1>
-      <div>
-        <button onClick={() => setCount(prevState => prevState + 1)}>+</button>
-        <button onClick={() => setCount(count - 1)}>-</button>
+      <div className="row">
+        <button onClick={add}>+</button>
+        <button onClick={subtract}>-</button>
       </div>
       <div className="row">
         <button onClick={() => setCount(0)}>Reset</button>
